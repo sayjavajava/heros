@@ -1,0 +1,41 @@
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <div *ngFor="let hero of heroes" [routerLink]="['/detail', hero.id]" class="col-1-4">
+    <div class="module hero">
+      <h4>{{hero.name}}</h4>
+      <h4>{{hero.id}}</h4>
+      
+    </div>
+  </div>
+</div>
+
+<hero-search></hero-search>
+
+<div>
+  
+    <table class="table-responsive table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        
+        
+      </tr>
+      </thead>
+      <tbody>
+  
+      <tr *ngFor="let user of heroes">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.name}}</td>
+        <td>
+          
+            <button type="button" class="btn btn-success" (click)="editUserPage(user)" item-width="10px">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="deleteUser(user)" item-width="10px">Delete</button>
+        </td>
+      </tr>
+  
+      </tbody>
+    </table>
+  
+  </div>
+  
