@@ -1,8 +1,9 @@
+import { AuthenticationServiceService } from './authentication-service.service';
 import './rxjs-extensions';
 
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import {AppRoutingModule} from "./app-routing.module";
@@ -16,6 +17,8 @@ import { HeroesComponent } from "./heroes.component";
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroService } from "./hero.service";
 import {HeroSearchComponent} from "./hero-search.component";
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -23,16 +26,19 @@ import {HeroSearchComponent} from "./hero-search.component";
   	BrowserModule,
 	  FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [
   	AppComponent,
     DashboardComponent,
 	  HeroDetailComponent,
     HeroesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    HomeComponent,
+    LoginComponent
   ],
-  providers: [ HeroService ],
+  providers: [ HeroService,AuthenticationServiceService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
